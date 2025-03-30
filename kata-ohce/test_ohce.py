@@ -21,3 +21,11 @@ if __name__ == '__main__':
         ohce = Ohce("Cristobal", hora_actual=hora_falsa)
         saludo = ohce.saludo()
         self.assertEqual(saludo, "¡Buenos días, Cristobal!")
+    def test_saludo_incluido_en_procesar(self):
+        def hora_falsa():
+            return 8  # 8 AM → buenos días
+
+        ohce = Ohce("Cristobal", hora_actual=hora_falsa)
+        resultado = ohce.procesar("Hola")
+        self.assertIn("¡Buenos días, Cristobal!", resultado)
+        self.assertIn("aloH", resultado)
