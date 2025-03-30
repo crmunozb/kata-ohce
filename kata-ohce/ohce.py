@@ -21,6 +21,9 @@ class Ohce:
         return texto == texto[::-1]
 
     def procesar(self, entrada):
+        if entrada == "Stop!":
+            return f"Adiós, {self.nombre}"
+
         saludo = self.saludo()
         invertido = entrada[::-1]
 
@@ -28,3 +31,8 @@ class Ohce:
             return f"{saludo}\n{invertido}\n¡Bonita palabra!"
 
         return f"{saludo}\n{invertido}"
+
+    def test_detener_con_stop(self):
+        ohce = Ohce("Cristobal")
+        resultado = ohce.procesar("Stop!")
+        self.assertEqual(resultado, "Adiós, Cristobal")
