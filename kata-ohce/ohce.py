@@ -3,4 +3,8 @@ class Ohce:
         self.nombre = nombre
 
     def procesar(self, entrada):
-        return entrada[::-1]
+        invertido = entrada[::-1]
+        if entrada == entrada[::-1]:
+            return f"{invertido}\n¡Bonita palabra!"
+        return invertido
+
