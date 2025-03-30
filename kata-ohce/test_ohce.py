@@ -9,3 +9,8 @@ class TestOhce(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+    def test_mensaje_si_palindromo(self):
+        ohce = Ohce("Cristobal")
+        resultado = ohce.procesar("reconocer")  # Es un palíndromo
+        self.assertIn("¡Bonita palabra!", resultado)
